@@ -509,7 +509,7 @@
   }
 
   #stadiums th {
-    background-color: var(--darkSky); 
+    background-color: var(--darkGrassTransparent); 
     color: var(--cloud);
     text-align: left; 
     padding: 12px; 
@@ -517,24 +517,15 @@
 
   #stadiums td {
     padding: 10px; 
-    border-bottom: 1px solid var(--darkSky); 
   }
 
   #stadiums tr:nth-child(even) {
     background-color: var(--cloudTransparent);
   }
 
-  #stadiums button {
-    background-color: var(--rustyDoor);
-    color: var(--cloud); 
-    border: none;
-    padding: 8px 16px; 
-    cursor: pointer; 
-    border-radius:
-  }
-  
-  #stadiums button:hover {
-    background-color: var(--darkBrick);
+  #stadiums td:nth-last-child(1), 
+  #stadiums td:nth-last-child(2) {
+  text-align: left;
   }
 
   @keyframes App-logo {}
