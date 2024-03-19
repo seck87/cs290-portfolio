@@ -7,7 +7,6 @@ import Stadium from './Stadium';
 function StadiumList({ stadiums, onDelete, onEdit }) {
     return (
         <table id="stadiums">
-            <caption>Stadiums</caption>
             <thead>
                 <tr>
                     <th>Name</th>

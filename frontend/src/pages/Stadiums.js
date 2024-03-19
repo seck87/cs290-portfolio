@@ -44,8 +44,6 @@ function StadiumsPage({ setStadium }) {
     // DISPLAY the stadiums
     return (
         <>
-            <h2>List of Stadiums</h2>
-            <p>Information about stadiums can be found here.</p>
             <Link to="/create">Add Stadium</Link>
             <StadiumList 
                 stadiums={stadiums} 
