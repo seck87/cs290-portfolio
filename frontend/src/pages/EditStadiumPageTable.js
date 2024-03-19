@@ -8,6 +8,24 @@ export const EditStadiumPageTable = ({ stadiumToEdit }) => {
 
     const redirect = useNavigate();
 
+    // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+    useEffect(() => {
+        const formatDateForInput = (dateString) => {
+            const date = new Date(dateString);
+            return new Intl.DateTimeFormat('en-CA', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+            }).format(date);
+        };
+    
+        if (stadiumToEdit) {
+            setName(stadiumToEdit.name || '');
+            setCapacity(stadiumToEdit.capacity || '');
+            setConstructionDate(stadiumToEdit.constructionDate ? formatDateForInput(stadiumToEdit.constructionDate) : '');
+        }
+    }, [stadiumToEdit]);
+
     const editStadium = async () => {
         const updatedStadium = { name, capacity, constructionDate };
         const response = await fetch(`/stadiums/${stadiumToEdit._id}`, {
