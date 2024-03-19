@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { MdAddBox } from 'react-icons/md';
 import StadiumList from '../components/StadiumList';
 import { Link } from 'react-router-dom';
 
@@ -44,7 +44,9 @@ function StadiumsPage({ setStadium }) {
     // DISPLAY the stadiums
     return (
         <>
-            <Link to="/create">Add Stadium</Link>
+            <Link to="/create" title="Add Stadium" className="add-stadium-link">
+                <MdAddBox /> Add Stadium
+            </Link>
             <StadiumList 
                 stadiums={stadiums} 
                 onEdit={onEditStadium} 

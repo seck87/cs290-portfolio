@@ -528,6 +528,28 @@
   text-align: left;
   }
 
+  .add-stadium-link {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 8px 12px;
+    background-color: var(--darkGrassTransparent);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .add-stadium-link:hover, .add-stadium-link:focus {
+    background-color: var(--lightBrickTransparent); 
+    color: var(--darkGrassTransparent); 
+    text-decoration: none; 
+  }
+  
+  .add-stadium-link svg {
+    margin-right: 5px;
+  }
+
   @keyframes App-logo {}
   
   /*   ===== TABLET  media query overrides mobile styles ===== */
