@@ -1,45 +1,509 @@
-/* 
-This style sheet can be used for reference
-but not for an assignment.
-*/
-
-/* Center the body in the middle of the viewport 
-by defining min and max widths with auto right/left margins
-*/
-body {
-margin:0 auto;
-width:500px;
-border:1px solid gray;
-padding:4%;
-}
-
-/* PAGE LAYOUT 
-Consistant design for each page layout block. 
-*/
-header, main, article, footer {
-    border-bottom:2px solid gray;
-}
-
-/* NAVIGATION
-Simple changes to make anchors look like buttons. 
-*/
-nav {}
-nav a {margin-right:3%;}
-nav a:hover {}
-
-/* TABLE */
-table {}
-caption {}
-tr td, td th {border-bottom:1px dotted whitesmoke;}
-tr:nth-child(even){}
-th {}
+/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
 
 
-/* FORM */
-fieldset {}
-legend {}
-label {display:block;margin-top:3%;}
-input {}
-button {}
-button:hover {}
+/*   ----- Imports  -----  */
+  /* @import 'node_modules/modern-normalize/modern-normalize.css';  npm install modern-normalize  Resets elements for browser consistency.  https://www.npmjs.com/package/modern-normalize */         
+  /* @import "component1.css";   Component-specific stylesheets, if any.   */
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Ubuntu:wght@300;500;700&display=swap');
 
+
+/*   ----- Variables  -----  */
+:root {
+    --cloud: #F0F6FB;
+    --darkSky: #7EA1BF;
+    --darkGrass:#384026;
+    --lightBrick:#EDD5A9;
+    --darkBrick:#4E382B;
+    --rustyDoor: #272725;
+    /*  A transparent alpha channel color definition was missing from the :root */
+    --cloudTransparent: rgba(240, 246, 251, 0.8);
+    --darkGrassTransparent:#384026E6;
+    --lightBrickTransparent:#EDD5A9E6;
+    
+    --custom-embellishment-name:;
+  }
+
+  * {
+    /*outline: 1px solid red;*/
+  }
+  
+  /*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+  body {       /* Can alternatively define in html {}. */
+    background-color:;
+    background-image: url(./images/background-image-soave-castle.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    background-repeat: no-repeat;
+    color: var(--rustyDoor);
+    font-family: 'Open Sans', sans-serif; /* Define with at least one font name and its related generic family name.*/
+    margin: 0 auto;
+    padding:;
+    max-width: 75%;
+  }
+  
+  /*  ----- Page layout blocks -----  */
+  header,
+  footer {
+    background-color: var(--darkGrassTransparent);
+    color: var(--lightBrick);
+    text-align: left;
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    /*  Use of margin was missing. */
+    margin: auto;
+    /*  Use of border was missing. */
+    border: 2px solid var(--lightBrickTransparent)
+  }
+
+  header img {
+    height: 32px;
+    width: auto;
+  }
+
+  header{
+    margin-top: 2%;
+    text-align: center;
+  }
+
+  footer{
+    margin-bottom: 2%
+  }
+
+  main {
+    background-color: var(--cloudTransparent);
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+  }
+
+  section h2{
+    text-align: center;
+  }
+  
+  section {
+    
+  }
+
+  article {}
+    #topic1 {}
+    #topic2 {}
+  div {}
+  aside {}
+  footer {
+    text-align: left;
+    padding-left: 2%;
+
+  }
+  
+  /* ----- Anchors ----- Text links */
+  .global a {
+    text-decoration: none;
+    color: var(--darkBrick);
+    padding: 2px 10px 2px 10px;
+    border: 2px solid var(--darkBrick);
+    border-radius: 8px;
+    margin: 2px;
+  }
+
+  .global a:link {
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .global a:hover {
+    text-decoration: none;
+    background-color: var(--darkBrick);
+    color: var(--lightBrick);
+  }
+
+  .global a:active {
+    text-decoration: none;
+    background-color: var(--darkSky);
+    color: var(--cloud);
+  }
+
+  .global a:visited {
+    text-decoration: none;
+  }
+
+  .local a {
+    text-decoration: none;
+    color: var(--rustyDoor);
+  }
+
+  .local a:link {
+    text-decoration: none;
+  }
+
+  .local a:hover {
+    text-decoration: underline;
+  }
+
+  .local a:active {
+    text-decoration: none;
+    background-color: var(--darkSky);
+    color: var(--cloud);
+  }
+
+  .local a:visited {
+    text-decoration: none;
+  }
+
+  
+  /*  ----- Navigation ----- Override text links for navigation only.  */
+  
+  nav.global {
+    padding-left: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: var(--lightBrickTransparent);
+    text-align: center;
+  }
+  
+  nav.local {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+  }
+
+  nav a {}
+  nav a:hover {}
+  
+  /*  -----  Typography  ----- */
+  p {}
+  br {}
+  ol, ul, dl {}
+  li {}
+  dt {}
+  dd {}
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+  } 
+
+  h1 {}
+  h2 {}
+  h3 {}
+  h4 {}
+  h5 {}
+  h6 {}
+  
+  abbr {}
+  acronym {}
+  address {}
+  blockquote {}
+    q {}
+    cite {}
+  em {}
+  hr {}
+  mark {}
+  s {}
+  span {}
+  strong {}
+  sub {}
+  sup {}
+  time {}
+  
+  /*  ----- Coding or instructional typography ----- */
+  pre {}
+  code {}
+  kbd {}
+  samp {}
+  var {}
+  del {} 
+  ins {}
+  
+  /*  ----- Table ----- */
+
+  table {
+    /*  ----- Always collapse those borders to improve readability ----- */
+    border-collapse: collapse;
+  }
+
+  caption {
+    text-decoration: underline;
+    padding: 1%;
+    border-bottom: 2px solid var(--darkGrass);
+
+  }
+
+  thead {
+    text-decoration: underline;
+
+  }
+
+  tbody {
+    text-align:left;
+  }
+
+  tfoot {}
+
+  tr {
+    
+  }
+
+    tr:nth-child(even) {}
+
+    table tbody tr td:last-child {
+      text-align: right;
+      font-weight: bold;
+    }
+
+  th {
+    padding: 1%;
+  }
+
+  .price-header {
+    text-align: right;
+  }
+
+  td {
+    padding: 1%;
+    border-bottom: 2px solid var(--darkGrass);
+  }
+
+    td:nth-child(1) {}
+
+  colgroup {}
+
+  data {}
+
+  datalist {}
+
+  
+  
+  /*  ----- Form ----- */
+  form {
+    font-family: 'Open Sans', sans-serif;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content:space-around;
+    align-items: stretch;
+  }
+
+  fieldset {
+    flex: 1 1 45%;
+    border: 2px solid var(--darkGrassTransparent);
+    justify-content: flex-start;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    margin-bottom: 20px;  /*  Add margin to provide breathing room above each one */
+    margin-top: 20px;  /*  Add margin to provide breathing room above each one */
+    padding: 10px; /* Add padding inside them to keep the labels and controls from touching the edges */
+    border-radius: 5px;
+    color: var(--rustyDoor);
+  }
+    
+    legend {  /*  helps describe its group of form controls, or prompts the user  */
+      background-color: ;
+      border: ;
+      border-bottom: ;
+      font-size: 1.2em;  /*  Consider changing its font size and color to differentiate it from labels */
+      color:var(--rustyDoor);  /*  Consider changing its font size and color to differentiate it from labels */
+    }
+
+  label {
+    display: block;  /* to display labels above, rather than inline with, their form controls, use the display property  */
+    margin-top: ;
+    font-size: ; /* and perhaps a smaller font size:   */
+    color: var(--rustyDoor);
+  }
+
+  button {
+    font-family: inherit;
+    font-size: 1em ;  /* Accommodate fat fingers and arthritic hands by increasing the font-size and padding  */
+    padding: 8px;
+  }
+
+  input {
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--darkGrass);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em; 
+    box-sizing: border-box;
+  }
+
+  input[type="text"], input[type="email"] {
+    width: calc(100% - 22px);
+  }
+
+  textarea {
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--darkGrass);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+  }
+
+  select {
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--darkGrass);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    box-sizing: border-box;
+    width: calc(100% - 22px);
+  }
+
+    optgroup {}
+
+    option {
+      font-size: ;  /* At the very least, increase the font-size and padding, to match the input  */
+      padding: ;  /* At the very least, increase the font-size and padding, to match the input  */
+    }
+
+
+  output {}
+
+  meter {}
+
+  progress {}
+
+  :focus {  /* The most common form input attribute to help users start typing in a form is autofocusLinks to an 
+    external site., which places the cursor in the first field for immediate typing, rather than necessitating a 
+    mouse click or touch into the input. (This property may not work inside of Canvas.) A color change will help 
+    users realize they can begin typing.  */
+    background-color: ;
+  }
+
+  *:required {  /*  The :required status of a field is important to let users know which fields they must fill in and 
+    which they can ignore. The asterisk in CSS (and other languages) represents all selectors that include the required 
+    attribute. Asterisks are a common way to warn users that particular fields are required. You can add that 
+    functionality with a class in HTML and include that class name in the CSS, like this: 
+    <label for="firstlastname" class="required">Name</label>  */
+    border: ; 
+  }
+
+  label.required:after { /* To help users understand whether their input meets the required pattern, such as enough of 
+    the right kinds of characters  */
+    content: " *";
+    color: ; 
+  }
+
+  /*  changing the border color from gray to red when invalid and green when valid is common  */
+  input:invalid { 
+    border: 2px solid red;
+  } 
+  input:valid { 
+    border: 2px solid green; 
+  }
+  
+  input::placeholder { /*  When inputs have the mouse's focus and a color change is specified, the placeholder text may 
+    need updating to improve contrast  */
+    color: ; 
+  }
+
+  input[type=checkbox]:checked + label { /*  Consider updating how a checked box or radio button looks when unchecked 
+    and checked. This method uses the type="checkbox" attribute as well as the adjacent sibling label and works well if 
+    the label tag is placed after the input tag in the HTML  */
+    color: ; 
+    font-style: ; 
+  }
+
+  /*  Complex forms, where one input relies on another, often use the :disabled and :enabled attributes to keep parts 
+  of a form from being accessed until the user provides the necessary input. Styling these disabled controls often 
+  follows this pattern  */
+  
+  input:disabled, textarea:disabled, select:disabled {
+  background-color: #eeeeee;
+  color: #666666; 
+  }
+
+  input:enabled { 
+    background: white; 
+  }
+
+  /* ----- Media ----- */
+
+  .gallery {
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  figure {
+
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .gallery img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+    figcaption {
+      font-size:larger;
+    }
+
+
+
+    figure img {}
+  svg {}
+  picture {}
+    source {}
+  iframe {}
+  video {}
+  audio {}
+  embed {}
+  object {}
+  
+  /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+  .gallery {}
+  
+  .floatright {}
+  .floatleft {}
+  .center-middle {}
+  
+  .ten {}
+  .twenty {}
+  .thirty {}
+  .forty {}
+  .fifty {}
+  .sixty {}
+  .seventy {}
+  .eighty {}
+  
+  .radius {}
+  .circle {}
+  .boxshadow {}
+  .tshadow {} 
+  .gradient {}
+  .shape {}
+  
+  @keyframes App-logo {}
+  
+  /*   ===== TABLET  media query overrides mobile styles ===== */
+  @media all and (min-width: 600px) {}
+  
+  /*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+  @media all and (min-width: 1080px) {}
+  
+  /*   ===== PRINT  media query overrides previous styles =====  */
+  @media print {}
