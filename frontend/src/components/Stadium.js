@@ -4,7 +4,7 @@ import React from 'react';
 // to fit your portfolio topic and schema.
 
 import { MdDeleteForever, MdEdit } from 'react-icons/md';
-
+import { MdAddBox, MdModeEditOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
 function Stadium({ stadium, onEdit, onDelete }) {
     return (
@@ -12,8 +12,8 @@ function Stadium({ stadium, onEdit, onDelete }) {
             <td>{stadium.name}</td>
             <td>{stadium.capacity}</td>
             <td>{stadium.constructionDate}</td>
-            <td><MdDeleteForever onClick={() => onDelete(stadium._id)} /></td>
-            <td><MdEdit onClick={() => onEdit(stadium)} /></td>
+            <td><MdRemoveCircleOutline onClick={() => onDelete(stadium._id)} style={{cursor: 'pointer'}} /></td>
+            <td><MdModeEditOutline onClick={() => onEdit(stadium)} style={{cursor: 'pointer'}} /></td>
         </tr>
     );
 }
