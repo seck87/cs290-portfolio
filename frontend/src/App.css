@@ -497,6 +497,46 @@
   .gradient {}
   .shape {}
   
+
+  /*  ----- Stadiums table -----  */
+
+  #stadiums {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    color: var(--darkBrick); 
+  }
+
+  #stadiums th {
+    background-color: var(--darkSky); 
+    color: var(--cloud);
+    text-align: left; 
+    padding: 12px; 
+  }
+
+  #stadiums td {
+    padding: 10px; 
+    border-bottom: 1px solid var(--darkSky); 
+  }
+
+  #stadiums tr:nth-child(even) {
+    background-color: var(--cloudTransparent);
+  }
+
+  #stadiums button {
+    background-color: var(--rustyDoor);
+    color: var(--cloud); 
+    border: none;
+    padding: 8px 16px; 
+    cursor: pointer; 
+    border-radius:
+  }
+  
+  #stadiums button:hover {
+    background-color: var(--darkBrick);
+  }
+
   @keyframes App-logo {}
   
   /*   ===== TABLET  media query overrides mobile styles ===== */
