@@ -31,8 +31,8 @@ function App() {
     <>
       <BrowserRouter>
           <header>
-            <h1>Portfolio</h1>
-            <p>Describe this website.</p>
+            <h1>Murat Kuvandik's Portfolio Website</h1>
+            <p>Created as part of the CS290 course - Web Development.</p>
           </header>
 
           <Navigation />
