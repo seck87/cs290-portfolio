@@ -56,7 +56,7 @@ function App() {
           </main>
 
           <footer>
-            <p>Copyright statement</p>
+            <p>&copy; 2024 Murat Seckin Kuvandik.</p>
           </footer>
 
       </BrowserRouter>
