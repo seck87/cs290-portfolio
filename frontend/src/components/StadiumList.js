@@ -1,26 +1,26 @@
 import React from 'react';
-import Movie from './Stadium';
+import Stadium from './Stadium';
 
 // Change the function names and parameters 
 // to fit your portfolio topic and schema.
 
-function MovieList({ movies, onDelete, onEdit }) {
+function StadiumList({ stadiums, onDelete, onEdit }) {
     return (
-        <table id="movies">
-            <caption>Add and Edit Movies</caption>
+        <table id="stadiums">
+            <caption>Add and Edit Stadiums</caption>
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Language</th>
+                    <th>Name</th>
+                    <th>Capacity</th>
+                    <th>Construction Date</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
-                {movies.map((movie, i) => 
-                    <Movie 
-                        movie={movie} 
+                {stadiums.map((stadium, i) => 
+                    <Stadium 
+                        stadium={stadium} 
                         key={i}
                         onDelete={onDelete}
                         onEdit={onEdit} 
@@ -30,4 +30,4 @@ function MovieList({ movies, onDelete, onEdit }) {
     );
 }
 
-export default MovieList;
+export default StadiumList;

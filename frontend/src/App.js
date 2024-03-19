@@ -11,23 +11,25 @@ import './App.css';
 
 import TopicsPage from './pages/TopicsPage';
 import HomePage from './pages/HomePage';
-import MoviesPage from './pages/Stadiums';
+import StadiumsPage from './pages/Stadiums';
+import Stadium from './components/Stadium';
+
+
+
 
 // For Create and Edit, use the form OR table design; not both.
-
 // If your schema requires SHORT data input, then use the TABLE design.
-import EditMoviePageTable from './pages/EditStadiumPageTable';
-import AddMoviePageTable from './pages/AddStadiumPageTable';
+import AddStadiumPageTable from './pages/AddStadiumPageTable';
+import EditStadiumPageTable from './pages/EditStadiumPageTable';
 
 // Define the function that renders the content in Routes, using State.
 function App() {
 
-  const [movie, setMovieToEdit] = useState([])
+  const [stadiumToEdit, setStadiumToEdit] = useState([])
 
   return (
     <>
       <BrowserRouter>
-
           <header>
             <h1>Portfolio</h1>
             <p>Describe this website.</p>
@@ -38,16 +40,11 @@ function App() {
           <main>
             <section>
                 <Routes> 
-                    {/* Add Routes for Home, Topics, Gallery, Contact, and Staff Pages.  */}
-                    
                     <Route path="/" element={<HomePage />} />
                     <Route path="/topics" element={<TopicsPage />} />
-                    <Route path="/stadiums" element={<MoviesPage />} />
-                    
-                    {/* Use these if your schema requires LONG data input: */}
-                    <Route path="/create" element={<AddMoviePageTable />} /> 
-                    <Route path="/update" element={<EditMoviePageTable movieToEdit={movie} />} />
-
+                    <Route path="/stadiums" element={<StadiumsPage setStadium={setStadiumToEdit} />} />
+                    <Route path="/create" element={<AddStadiumPageTable />} /> 
+                    <Route path="/update" element={<EditStadiumPageTable stadiumToEdit={stadiumToEdit} />} />
                 </Routes>
               </section>
           </main>
@@ -55,7 +52,6 @@ function App() {
           <footer>
             <p>&copy; 2024 Murat Seckin Kuvandik.</p>
           </footer>
-
       </BrowserRouter>
     </>
   );

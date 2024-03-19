@@ -1,90 +1,88 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export const EditMoviePageTable = ({ movieToEdit }) => {
- 
-    const [title, setTitle]       = useState(movieToEdit.title);
-    const [year, setYear]         = useState(movieToEdit.year);
-    const [language, setLanguage] = useState(movieToEdit.language);
-    
+export const EditStadiumPageTable = ({ stadiumToEdit }) => {
+    const [name, setName] = useState('');
+    const [capacity, setCapacity] = useState('');
+    const [constructionDate, setConstructionDate] = useState('');
+
     const redirect = useNavigate();
 
-    const editMovie = async () => {
-        const response = await fetch(`/movies/${movieToEdit._id}`, {
+    const editStadium = async () => {
+        const updatedStadium = { name, capacity, constructionDate };
+        const response = await fetch(`/stadiums/${stadiumToEdit._id}`, {
             method: 'PUT',
-            body: JSON.stringify({ 
-                title: title, 
-                year: year, 
-                language: language
-            }),
-            headers: {'Content-Type': 'application/json',},
+            body: JSON.stringify(updatedStadium),
+            headers: {'Content-Type': 'application/json'},
         });
 
         if (response.status === 200) {
-            alert(`helpful editing message`);
+            alert(`Stadium updated successfully`);
+            redirect("/stadiums"); // Make sure to redirect to the correct path
         } else {
             const errMessage = await response.json();
-            alert(`helpful editing message ${response.status}. ${errMessage.Error}`);
+            alert(`Failed to update stadium ${response.status}. ${errMessage.Error}`);
         }
-        redirect("/");
     }
 
     return (
         <>
-        <article>
-            <h2>Edit a movie</h2>
-            <p>Paragraph about this page.</p>
-            <table id="movies">
-                <caption>Which movie are you adding?</caption>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Language</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><label for="title">Movie title</label>
-                        <input
-                            type="text"
-                            placeholder="Title of the movie"
-                            value={title}
-                            onChange={e => setTitle(e.target.value)} 
-                            id="title" />
-                    </td>
+            <article>
+                <h2>Edit Stadium</h2>
+                <p>Update the details below to edit the stadium information.</p>
+                <table id="stadiums">
+                    <caption>Details of the stadium to edit:</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Capacity</th>
+                            <th>Construction Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label htmlFor="name">Stadium Name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Name of the stadium"
+                                    value={name}
+                                    onChange={e => setName(e.target.value)}
+                                    id="name" />
+                            </td>
 
-                    <td><label for="year">Year released</label>
-                        <input
-                            type="number"
-                            value={year}
-                            placeholder="Year of the movie"
-                            onChange={e => setYear(e.target.value)} 
-                            id="year" />
-                    </td>
+                            <td>
+                                <label htmlFor="capacity">Capacity</label>
+                                <input
+                                    type="number"
+                                    placeholder="Capacity"
+                                    value={capacity}
+                                    onChange={e => setCapacity(e.target.value)}
+                                    id="capacity" />
+                            </td>
 
-                    <td><label for="language">Language</label>
-                        <input
-                            type="text"
-                            placeholder="Primary language of the movie"
-                            value={language}
-                            onChange={e => setLanguage(e.target.value)} 
-                            id="language" />
-                    </td>
+                            <td>
+                                <label htmlFor="constructionDate">Construction Date</label>
+                                <input
+                                    type="date"
+                                    value={constructionDate}
+                                    onChange={e => setConstructionDate(e.target.value)}
+                                    id="constructionDate" />
+                            </td>
 
-                    <td>
-                    <label for="submit">Commit</label>
-                        <button
-                            type="submit"
-                            onClick={editMovie}
-                            id="submit"
-                        >Edit</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                            <td>
+                                <button
+                                    type="button"
+                                    onClick={editStadium}
+                                    id="submit"
+                                >Save Changes</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </article>
         </>
     );
 }
-export default EditMoviePageTable;
+
+export default EditStadiumPageTable;

@@ -1,61 +1,59 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import MovieList from '../components/StadiumList';
+import StadiumList from '../components/StadiumList';
 import { Link } from 'react-router-dom';
 
-function MoviesPage({ setMovie }) {
+function StadiumsPage({ setStadium }) {
     // Use the Navigate for redirection
     const redirect = useNavigate();
 
     // Use state to bring in the data
-    const [movies, setMovies] = useState([]);
+    const [stadiums, setStadiums] = useState([]);
 
-    // RETRIEVE the entire list of movies
-    const loadMovies = async () => {
-        const response = await fetch('/movies');
-        const movies = await response.json();
-        setMovies(movies);
+    // RETRIEVE the entire list of stadiums
+    const loadStadiums = async () => {
+        const response = await fetch('/stadiums');
+        const stadiums = await response.json();
+        setStadiums(stadiums);
     } 
     
 
-    // UPDATE a single movie
-    const onEditMovie = async movie => {
-        setMovie(movie);
+    // UPDATE a single stadium
+    const onEditStadium = async stadium => {
+        setStadium(stadium);
         redirect("/update");
     }
 
 
-    // DELETE a single movie  
-    const onDeleteMovie = async _id => {
-        const response = await fetch(`/movies/${_id}`, { method: 'DELETE' });
+    // DELETE a single stadium 
+    const onDeleteStadium = async _id => {
+        const response = await fetch(`/stadiums/${_id}`, { method: 'DELETE' });
         if (response.status === 200) {
-            const getResponse = await fetch('/movies');
-            const movies = await getResponse.json();
-            setMovies(movies);
+            loadStadiums();
         } else {
-            console.error(`helpful deletion message = ${_id}, status code = ${response.status}`)
+            console.error(`Failed to delete stadium with ID = ${_id}, status code = ${response.status}`)
         }
     }
 
-    // LOAD all the movies
+    // LOAD all the stadiums
     useEffect(() => {
-        loadMovies();
+        loadStadiums();
     }, []);
 
-    // DISPLAY the movies
+    // DISPLAY the stadiums
     return (
         <>
-            <h2>List of Movies</h2>
-            <p>Paragraph about this page.</p>
-            <Link to="/create">Add Movie</Link>
-            <MovieList 
-                movies={movies} 
-                onEdit={onEditMovie} 
-                onDelete={onDeleteMovie} 
+            <h2>List of Stadiums</h2>
+            <p>Information about stadiums can be found here.</p>
+            <Link to="/create">Add Stadium</Link>
+            <StadiumList 
+                stadiums={stadiums} 
+                onEdit={onEditStadium} 
+                onDelete={onDeleteStadium} 
             />
         </>
     );
 }
 
-export default MoviesPage;
+export default StadiumsPage;

@@ -4,90 +4,71 @@ import { useNavigate } from "react-router-dom";
 // Change the icons, function names, and parameters 
 // to fit your portfolio topic and schema.
 
-export const AddMoviePageTable = () => {
+export const AddStadiumPageTable = () => {
+    const [name, setName] = useState('');
+    const [capacity, setCapacity] = useState('');
+    const [constructionDate, setConstructionDate] = useState('');
 
-    const [title, setTitle]       = useState('');
-    const [year, setYear]         = useState('');
-    const [language, setLanguage] = useState('');
-    
     const redirect = useNavigate();
 
-    const addMovie = async () => {
-        const newMovie = { title, year, language };
-        const response = await fetch('/movies', {
+    const addStadium = async () => {
+        const newStadium = { name, capacity, constructionDate };
+        const response = await fetch('/stadiums', {
             method: 'post',
-            body: JSON.stringify(newMovie),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            body: JSON.stringify(newStadium),
+            headers: {'Content-Type': 'application/json',},
         });
         if(response.status === 201){
-            alert(`helpful adding message`);
+            alert(`Stadium added successfully`);
         } else {
-            alert(`helpful adding message = ${response.status}`);
+            alert(`Failed to add stadium, status: ${response.status}`);
         }
-        redirect("/");
+        redirect("/stadiums");
     };
 
 
     return (
         <>
-        <article>
-            <h2>Add a movie</h2>
-            <p>Paragraph about this page.</p>
-            
-            <table id="movies">
-                <caption>Which movie are you adding?</caption>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Language</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><label for="title">Movie title</label>
-                        <input
-                            type="text"
-                            placeholder="Title of the movie"
-                            value={title}
-                            onChange={e => setTitle(e.target.value)} 
-                            id="title" />
-                    </td>
-
-                    <td><label for="year">Year released</label>
-                        <input
-                            type="number"
-                            value={year}
-                            placeholder="Year of the movie"
-                            onChange={e => setYear(e.target.value)} 
-                            id="year" />
-                    </td>
-
-                    <td><label for="language">Language</label>
-                        <input
-                            type="text"
-                            placeholder="Primary language of the movie"
-                            value={language}
-                            onChange={e => setLanguage(e.target.value)} 
-                            id="language" />
-                    </td>
-
-                    <td>
-                    <label for="submit">Commit</label>
-                        <button
-                            type="submit"
-                            onClick={addMovie}
-                            id="submit"
-                        >Add</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </article>
-    </>
-);
+            <article>
+                <h2>Add a Stadium</h2>
+                <p>Fill in the details below to add a new stadium.</p>
+                
+                <div>
+                    <label htmlFor="name">Stadium Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        placeholder="Enter stadium name"
+                    />
+                </div>
+    
+                <div>
+                    <label htmlFor="capacity">Capacity:</label>
+                    <input
+                        type="number"
+                        id="capacity"
+                        value={capacity}
+                        onChange={e => setCapacity(e.target.value)}
+                        placeholder="Enter capacity"
+                    />
+                </div>
+    
+                <div>
+                    <label htmlFor="constructionDate">Construction Date:</label>
+                    <input
+                        type="date"
+                        id="constructionDate"
+                        value={constructionDate}
+                        onChange={e => setConstructionDate(e.target.value)}
+                    />
+                </div>
+    
+                <button onClick={addStadium}>Add Stadium</button>
+            </article>
+        </>
+    );
 }
 
-export default AddMoviePageTable;
+export default AddStadiumPageTable;
