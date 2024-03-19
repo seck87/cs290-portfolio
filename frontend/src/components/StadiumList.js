@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './Movie';
+import Movie from './Stadium';
 
 // Change the function names and parameters 
 // to fit your portfolio topic and schema.

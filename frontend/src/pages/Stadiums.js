@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import MovieList from '../components/MovieList';
+import MovieList from '../components/StadiumList';
 import { Link } from 'react-router-dom';
 
 function MoviesPage({ setMovie }) {

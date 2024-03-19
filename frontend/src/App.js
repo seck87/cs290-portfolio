@@ -14,13 +14,10 @@ import HomePage from './pages/HomePage';
 import MoviesPage from './pages/Stadiums';
 
 // For Create and Edit, use the form OR table design; not both.
-// If your schema requires LONG data input, then use the FORM design:
-import AddMoviePageForm from './pages/AddMoviePageForm';
-import EditMoviePageForm from './pages/EditMoviePageForm';
 
 // If your schema requires SHORT data input, then use the TABLE design.
-import EditMoviePageTable from './pages/EditMoviePageTable';
-import AddMoviePageTable from './pages/AddMoviePageTable';
+import EditMoviePageTable from './pages/EditStadiumPageTable';
+import AddMoviePageTable from './pages/AddStadiumPageTable';
 
 // Define the function that renders the content in Routes, using State.
 function App() {
@@ -51,9 +48,6 @@ function App() {
                     <Route path="/create" element={<AddMoviePageTable />} /> 
                     <Route path="/update" element={<EditMoviePageTable movieToEdit={movie} />} />
 
-                    {/* Or these if your schema requires SHORT data input: */}
-                     <Route path="/create" element={<AddMoviePageForm />} />   
-                     <Route path="/update" element={<EditMoviePageForm movieToEdit={movie} />} />
                 </Routes>
               </section>
           </main>
