@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 // Change the function names and links
 // to fit your portfolio topic.
 
-function Menu() {
+function Navigation() {
   return (
-    <nav>
+    <nav className="global">
         {/* Add links to Home, Topics, Gallery, Contact, and Staff Pages  */}
-        <Link to="/">Movie List</Link>
+        <Link to="/">Home</Link>
+        <Link to="/stadiums">Soccer Stadiums</Link>
+        <Link to="/topics">Topics</Link>
     </nav>
   );
 }
 
-export default Menu;
+export default Navigation;
