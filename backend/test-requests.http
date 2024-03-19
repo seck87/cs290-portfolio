@@ -1,0 +1,82 @@
+### CREATE five documents.
+POST http://localhost:3000/stadiums HTTP/1.1
+content-type: application/json
+
+{
+    "name": "San Siro",
+    "capacity": 80018,
+    "constructionDate": "1926-09-19"
+}
+
+
+### CREATE 2
+POST http://localhost:3000/stadiums HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Camp Nou",
+    "capacity": 99354,
+    "constructionDate": "1957-09-24"
+}
+
+### CREATE 3
+POST http://localhost:3000/stadiums HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Wembley Stadium",
+    "capacity": 90000,
+    "constructionDate": "2007-03-09"
+}
+
+### CREATE 4
+POST http://localhost:3000/stadiums HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Allianz Arena",
+    "capacity": 75000,
+    "constructionDate": "2005-05-30"
+}
+
+### CREATE 5
+POST http://localhost:3000/stadiums HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Santiago Bernabéu",
+    "capacity": 81044,
+    "constructionDate": "1947-12-14"
+}
+
+
+### RETRIEVE all documents.
+GET http://localhost:3000/stadiums HTTP/1.1
+
+
+
+### RETRIEVE a document by its ID.
+### Replace the following ID with one that exists in the collection.
+GET http://localhost:3000/stadiums/65e6a781e9966b678719a82d HTTP/1.1
+
+
+### UPDATE one document's year, by ID.
+### Replace the ID in the following request with one that exists
+### and update the year:
+PUT http://localhost:3000/stadiums/65e6a781e9966b678719a82d HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Santiago Bernabéu",
+    "capacity": 111044,
+    "constructionDate": "1947-12-14"
+}
+
+### DELETE by ID (responds with nothing if successful):
+DELETE http://localhost:3000/stadiums/65e6a781e9966b678719a82d HTTP/1.1
+
+
+
+### RETRIEVE all documents (responds with 4 or the original 5):
+GET http://localhost:3000/stadiums HTTP/1.1
+
